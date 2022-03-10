@@ -1,16 +1,10 @@
 import { useState, useEffect } from "react";
 
-import { RepositoryItem } from "./RepositoryItem";
-
 import "../styles/repositories.scss";
 
-export function RepositoryList() {
-  const repository = {
-    name: "unform",
-    description: "Forms in React",
-    link: "https://github.com/unform/unform",
-  };
+import { RepositoryItem } from "./RepositoryItem";
 
+export function RepositoryList() {
   //Criando um estado para armazenar a lista de repositórios
   const [repositories, setRepositories] = useState([]); //Como é uma lista que receberemos vamos deixar um array vazio de estado de inicio
 
@@ -26,10 +20,9 @@ export function RepositoryList() {
       <h1>Lista de repositórios</h1>
 
       <ul>
-        <RepositoryItem repository={repository} />
-        <RepositoryItem repository={repository} />
-        <RepositoryItem repository={repository} />
-        <RepositoryItem repository={repository} />
+        {repositories.map((repository) => (
+          <RepositoryItem repository={repository} key={repository.name} /> //Key é utilizado para a distinção entre cada elemento que será renderizado, uma informação unica, algo que não se repita entre eles
+        ))}
       </ul>
     </section>
   );
