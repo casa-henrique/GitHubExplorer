@@ -2,21 +2,29 @@ section.repository-list {
   display: flex;
   flex-direction: column;
 
-  gap: 2rem;
+  width: 100vw;
+  height: 100vh;
 
-  margin: 40px;
+  gap: 2rem;
+  padding: 2rem 1rem 1rem 1rem;
 
   h1 {
-    margin-bottom: 16px;
+    height: 5%;
+    align-self: center;
   }
 
   ul {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
 
-    overflow: auto;
-
     gap: 2rem;
+
+    height: 90%;
+
+    padding: 1rem;
+
+    overflow-x: hidden;
+    overflow-y: scroll;
 
     li {
       display: flex;
